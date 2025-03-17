@@ -95,3 +95,6 @@ increaseRisk.addEventListener("click", () => { //listen for when this button is 
             }
         })
 });
+
+//Task 6: Handling Event Propagation.
+//Event propagation was already stopped. Interacting with cards does not unintentionally remove them.
