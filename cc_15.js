@@ -17,10 +17,18 @@ function addRiskItem(riskName, riskLevel, department) { //create a function that
     newCard.innerHTML = `
     <h2>Name: ${riskName}</h2>
     <p>Risk Level: ${riskLevel}<br>
-    Department: ${department}</p>`; //set the HTML and use the input variables
+    Department: ${department}</p>
+    <button class="removeButton">Remove</button>`; //set the HTML and use the input variables
 
+    //Task 3: Removing Risk Items.
+    const rmvButton = newCard.querySelector(".removeButton");
+    rmvButton.addEventListener("click", (event) => {
+    dashboardContainer.removeChild(newCard);
+    event.stopPropagation();
+    });
+
+    
     newCard.style.textAlign = "center"; //center the text in the card
-    newCard.style.backgroundColor = "darkgreen"; //set the color to dark green
     newCard.style.width = "32%"; //set the width of each card to be slightly less than a third of the screen
 
     dashboardContainer.appendChild(newCard); //append the new card to the container
@@ -41,3 +49,6 @@ submitButton.addEventListener("click", (event) => { //add a click event listener
 
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations"); //test data
+
+//Task 3 test data
+addRiskItem("Market Fluctuations", "High", "Finance");
