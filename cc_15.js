@@ -27,9 +27,23 @@ function addRiskItem(riskName, riskLevel, department) { //create a function that
     event.stopPropagation();
     });
 
-    
+
     newCard.style.textAlign = "center"; //center the text in the card
     newCard.style.width = "32%"; //set the width of each card to be slightly less than a third of the screen
+
+
+
+    //Task 4: Categorizing Risks by Level.
+    if (riskLevel.toLowerCase() === "low") { //create an if statement to check if the value of the input is "low" when all characters are turned to lowercase
+        newCard.style.backgroundColor = "green"; //if they are, make the background green
+    } else if (riskLevel.toLowerCase() === "medium") { //same check, but for medium
+        newCard.style.backgroundColor = "yellow"; //if it is, make the background yellow
+    } else if (riskLevel.toLowerCase() === "high") { //same check for high
+        newCard.style.backgroundColor = "red"; //if it is, make background red
+    } else {
+        newCard.style.backgroundColor = "gray"; //otherwise, make the background gray
+    }
+
 
     dashboardContainer.appendChild(newCard); //append the new card to the container
 }
@@ -52,3 +66,7 @@ addRiskItem("Supply Chain Disruption", "Medium", "Operations"); //test data
 
 //Task 3 test data
 addRiskItem("Market Fluctuations", "High", "Finance");
+
+//Task 4 test data
+addRiskItem("Cybersecurity Threat", "High", "IT");
+addRiskItem("HR Compliance Issue", "Low", "Human Resources");
